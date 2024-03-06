@@ -2,7 +2,7 @@ import { categories } from "../data";
 import "../styles/categories.css"
 import { Link } from "react-router-dom";
 
-const Categories = () => {
+const Category = () => {
   return (
     <div className="categories">
       <h1>Explore Top Categories</h1>
@@ -31,4 +31,4 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default Category;
