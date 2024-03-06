@@ -21,6 +21,10 @@
     justify-content: space-between;
     align-items: center;
 }
+.listing-details .title .heading {
+    font-weight: bold;
+    font-size:x-large;
+}
 @media (max-width: 480px) {
     .listing-details .title {
         flex-direction: column;
@@ -129,4 +133,8 @@
     .listing-details .booking .date-range-calendar .button {
         max-width: 300px;
    }
+}
+.owner{
+    font-weight: bold;
+    font-size: larger;
 }
