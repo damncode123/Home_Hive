@@ -9,7 +9,7 @@ import { DateRange } from "react-date-range";
 import Loader from "../Components/Loader.jsx";
 import Navbar from "../Components/Navbar.jsx";
 import { useSelector } from "react-redux";
-// import Footer from "../components/Footer"
+import Footer from "../Components/Footer.jsx"
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -190,7 +190,7 @@ const ListingDetails = () => {
         </div>
       </div>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

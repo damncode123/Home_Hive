@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Loader from "../Components/Loader.jsx"
 import Navbar from "../Components/Navbar";
 import ListingCard from "../Components/ListingCard";
-// import Footer from "../Components/Footer"
+import Footer from "../Components/Footer.jsx"
 const SearchPage = () => {
   const [loading, setLoading] = useState(true)
   const { search } = useParams()
@@ -66,7 +66,7 @@ const SearchPage = () => {
           )
         )}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

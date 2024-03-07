@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setListings } from "../redux/state";
 import Loader from "../Components/Loader";
 import ListingCard from "../Components/ListingCard";
-// import Footer from "../Components/Footer"
+import Footer from "../Components/Footer"
 const CategoryPage = () => {
     const [loading, setLoading] = useState(true);
     const { category } = useParams();
@@ -72,7 +72,7 @@ const CategoryPage = () => {
             )
           )}
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </>
     );
 }

@@ -5,7 +5,7 @@ import ListingCard from "../Components/ListingCard.jsx";
 import { useEffect, useState } from "react";
 import { setPropertyList } from "../redux/state";
 import Loader from "../Components/Loader.jsx";
-// import Footer from "../components/Footer"
+import Footer from "../Components/Footer.jsx"
 
 const PropertyList = () => {
     const [loading, setLoading] = useState(true)
@@ -66,7 +66,7 @@ const PropertyList = () => {
           )}
         </div>
   
-        {/* <Footer /> */}
+        <Footer />
       </>
     );
   };

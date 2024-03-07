@@ -7,7 +7,7 @@ import { useState } from "react";
 import { BiTrash } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../Components/Footer";
 const CreateListing = () => {
   // State for managing form inputs
   const [category, setCategory] = useState("");
@@ -471,6 +471,7 @@ const CreateListing = () => {
           </button>
         </form>
       </div>
+      <Footer/>
     </>
   );
 };

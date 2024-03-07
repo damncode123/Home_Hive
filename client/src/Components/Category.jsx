@@ -1,7 +1,6 @@
 import { categories } from "../data";
 import "../styles/categories.css"
 import { Link } from "react-router-dom";
-
 const Category = () => {
   return (
     <div className="categories">
