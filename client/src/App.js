@@ -8,6 +8,9 @@ import ListingDetails from "./pages/ListingDetails.jsx";
 import TripList from "./pages/TripList.jsx";
 import WishList from "./pages/WishList.jsx";
 import PropertyList from "./pages/PropertyList.jsx";
+import ReservationList from "./pages/ReservationList.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
+import CategoryPage from "./pages/CategoryPage.jsx";
 function App() {
   return (
     <div>
@@ -18,9 +21,12 @@ function App() {
           <Route path="/Register" element={<RegisterPage />} />
           <Route path="/create-listing" element={<CreateListing />} />
           <Route path="/properties/:listingId" element={<ListingDetails />} />
+          <Route path="/properties/category/:category" element={<CategoryPage />} />
           <Route path="/:userId/trips" element={<TripList />} />
           <Route path="/:userId/:listingId" element={<WishList/>}/>
-          <Route path="/:userId/properties" element={<PropertyList/>}/>
+          <Route path="/users/:userId/properties" element={<PropertyList/>}/>
+          <Route path="/users/:userId/reservations" element={<ReservationList/>}/>
+          <Route path="/properties/search/:search" element={<SearchPage />} />
         </Routes>
       </BrowserRouter>
     </div>

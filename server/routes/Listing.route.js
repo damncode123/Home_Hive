@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import {CreateListing , GetListing , GetListingById} from "../controller/Listing.controller.js";
+import {CreateListing , GetListing , GetListingById , GetListingBySearch} from "../controller/Listing.controller.js";
 // User routes
 const Listing = Router();
 /* Configuration Multer for File Upload */
@@ -17,4 +17,5 @@ const upload = multer({ storage });
 Listing.post("/create",upload.array("listingPhotos"),CreateListing);
 Listing.get("/",GetListing);
 Listing.get("/:listingId",GetListingById)
+Listing.get("/search/:search",GetListingBySearch)
 export default Listing;

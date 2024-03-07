@@ -1,6 +1,6 @@
 import { Listing } from "../model/Listing.model.js";
 import { User } from "../model/user.model.js";
-
+/* CREATE LISTING */
 const CreateListing = async (req, res) => {
    try {
     const {
@@ -63,6 +63,8 @@ const CreateListing = async (req, res) => {
       console.log(err)
     }
 };
+/* GET lISTINGS BY CATEGORY */
+// This route is used when we click on the react-icons to get certain property
 const GetListing = async(req,res) =>{
   const qCategory = req.query.category
 
@@ -80,6 +82,39 @@ const GetListing = async(req,res) =>{
     console.log(err)
   }
 }
+/* GET LISTINGS BY SEARCH */
+const GetListingBySearch = async(req,res)=>{
+  const { search } = req.params;
+
+try {
+  let listings = [];
+
+  // Check if the search parameter is 'all'
+  if (search === "all") {
+    // If 'all', retrieve all listings from the database and populate the 'creator' field
+    listings = await Listing.find().populate("creator");
+  } else {
+    // If search parameter is not 'all', perform a filtered search based on category or title
+    listings = await Listing.find({
+      // Using $or operator to match documents that satisfy at least one of the conditions
+      $or: [
+        // Using regular expression to perform case-insensitive search on category
+        { category: { $regex: search, $options: "i" } },
+        // Using regular expression to perform case-insensitive search on title
+        { title: { $regex: search, $options: "i" } },
+      ]
+    }).populate("creator");
+  }
+
+  // Sending the retrieved listings as a JSON response
+  res.status(200).json(listings);
+} catch (err) {
+  // Handling errors by sending a 404 status code along with an error message
+  res.status(404).json({ message: "Fail to fetch listings", error: err.message });
+  console.log(err); // Logging the error for debugging purposes
+}
+}
+
 const GetListingById = async(req,res)=>{
   try {
     const { listingId } = req.params
@@ -90,4 +125,4 @@ const GetListingById = async(req,res)=>{
   }
 
 }
-export { CreateListing, GetListing , GetListingById};
+export { CreateListing, GetListing , GetListingById ,GetListingBySearch};

@@ -48,5 +48,15 @@ const PropertiesList = async(req,res)=>{
     res.status(404).json({ message: "Can not find properties!", error: err.message })
   }
 }
+const ReservationList = async(req,res)=>{
+  try {
+    const { userId } = req.params
+    const reservations = await Booking.find({ hostId: userId }).populate("customerId hostId listingId")
+    res.status(202).json(reservations)
+  } catch (err) {
+    console.log(err)
+    res.status(404).json({ message: "Can not find reservations!", error: err.message })
+  }
+}
 
-export {GetTripsList,AddToWishlist,PropertiesList};
+export {GetTripsList,AddToWishlist,PropertiesList,ReservationList};
