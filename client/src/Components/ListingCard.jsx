@@ -93,6 +93,7 @@ const ListingCard = ({
                <div
                  className="next-button"
                  onClick={(e) => {
+                  // to stop event bubbling
                    e.stopPropagation();
                    goToNextSlide(e);
                  }}

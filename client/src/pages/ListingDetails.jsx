@@ -60,36 +60,42 @@ const ListingDetails = () => {
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
 
   /* SUBMIT BOOKING */
-  // const customerId = useSelector((state) => state?.user?._id)
+  const customerId = useSelector((state) => state?.user?._id)
+  // console.log(customerId);
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate(); 
 
-  // const handleSubmit = async () => {
-  //   try {
-  //     const bookingForm = {
-  //       customerId,
-  //       listingId,
-  //       hostId: listing.creator._id,
-  //       startDate: dateRange[0].startDate.toDateString(),
-  //       endDate: dateRange[0].endDate.toDateString(),
-  //       totalPrice: listing.price * dayCount,
-  //     }
-
-  //     const response = await fetch("http://localhost:5000/bookings/create", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(bookingForm)
-  //     })
-
-  //     if (response.ok) {
-  //       navigate(`/${customerId}/trips`)
-  //     }
-  //   } catch (err) {
-  //     console.log("Submit Booking Failed.", err.message)
-  //   }
+  // const handleSubmit =()=>{
+  //   console.log("hello");
+  //   alert("hello");
   // }
+  const handleSubmit = async () => {
+    try {
+      const bookingForm = {
+        customerId,
+        listingId,
+        hostId: listing.creator._id,
+        startDate: dateRange[0].startDate.toDateString(),
+        endDate: dateRange[0].endDate.toDateString(),
+        totalPrice: listing.price * dayCount,
+      }
+
+      const response = await fetch("http://localhost:5000/Home-Hive/bookings/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingForm)
+      })
+
+      if (response.ok) {
+        // alert("good");
+        navigate(`/${customerId}/trips`)
+      }
+    } catch (err) {
+      console.log("Submit Booking Failed.", err.message)
+    }
+  }
 
   return loading ? (
     <Loader />
@@ -176,7 +182,7 @@ const ListingDetails = () => {
               <h2>Total price: ${listing.price * dayCount}</h2>
               <p>Start Date: {dateRange[0].startDate.toDateString()}</p>
               <p>End Date: {dateRange[0].endDate.toDateString()}</p>
-              <button className="button" type="submit">
+              <button className="button" type="submit" onClick={handleSubmit}>
                 BOOKING
               </button>
             </div>

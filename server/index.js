@@ -1,7 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
-import AuthRoute from "./routes/auth.route.js";
-import Listing  from "./routes/Listing.route.js";
+import AuthRoutes from "./routes/auth.route.js";
+import ListingRoutes  from "./routes/Listing.route.js";
+import BookingRoutes from "./routes/booking.route.js";
+import UserRoutes from "./routes/user.route.js"
 import mongoose from "mongoose";
 import cors from "cors";
 
@@ -15,8 +17,10 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Routes
-app.use("/Home-Hive/auth", AuthRoute);
-app.use("/Home-Hive/properties",Listing)
+app.use("/Home-Hive/auth", AuthRoutes);
+app.use("/Home-Hive/properties",ListingRoutes);
+app.use("/Home-Hive/bookings",BookingRoutes);
+app.use("/Home-Hive/users",UserRoutes);
 
 // Mongoose Setup
 const PORT = process.env.PORT || 3000;
