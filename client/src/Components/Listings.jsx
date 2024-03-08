@@ -12,8 +12,10 @@ const Listings = () => {
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  // used to select the reducers
   const listings = useSelector((state) => state.listings);
 
+  // we are fetching it using http://localhost:5000/Home-Hive/properties api endpoint but with category filter 
   const getFeedListings = async () => {
     try {
       const response = await fetch(
@@ -26,6 +28,7 @@ const Listings = () => {
       );
 
       const data = await response.json();
+      // new data dispatched to listing reducer
       dispatch(setListings({ listings: data }));
       setLoading(false);
     } catch (err) {
@@ -42,8 +45,10 @@ const Listings = () => {
       <div className="category-list">
         {categories?.map((category, index) => (
           <div
+          // if we click on any of the react-icon toh classname = "categoryselected"
             className={`category ${category.label === selectedCategory ? "selected" : ""}`}
             key={index}
+            // label is the name of the category
             onClick={() => setSelectedCategory(category.label)}
           >
             <div className="category_icon">{category.icon}</div>
@@ -56,6 +61,7 @@ const Listings = () => {
         <Loader />
       ) : (
         <div className="listings">
+          {/* listing will have new fecthed data as the state is updated */}
           {listings.map(
             ({
               _id,

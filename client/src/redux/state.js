@@ -14,6 +14,7 @@ export const userSlice = createSlice({
       state.token = action.payload.token
     },
     setLogout: (state) => {
+      // using Jwt token for not 
       state.user = null
       state.token = null
     },

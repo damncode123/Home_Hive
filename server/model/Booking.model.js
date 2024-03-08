@@ -1,6 +1,8 @@
 import mongoose,{Schema} from "mongoose";
 const BookingSchema  = new Schema(
     {
+
+       // Relation from all other database model
         customerId: {
           type: mongoose.Schema.Types.ObjectId,
           ref: "User",
