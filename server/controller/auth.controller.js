@@ -4,6 +4,7 @@ import { User } from "../model/user.model.js";
 
 
 /* USER REGISTER */
+// User ka registration ho raha hai yaha par
 const Register = async (req, res) => {
   try {
     /* Take all information from the form */

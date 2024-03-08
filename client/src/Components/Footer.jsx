@@ -20,7 +20,7 @@ const Footer = () => {
         <h3>Contact</h3>
         <div className="footer_right_info">
           <LocalPhone />
-          <p>+918000600016</p>
+          <p>+91-8000600016</p>
         </div>
         <div className="footer_right_info">
           <Email />

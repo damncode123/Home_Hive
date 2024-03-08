@@ -1,6 +1,8 @@
 .title-list {
     margin: 40px 100px;
     color: #24355a;
+    font-size: larger;
+    font-weight: bold;
 }
 @media (max-width: 480px) {
     .title-list {
